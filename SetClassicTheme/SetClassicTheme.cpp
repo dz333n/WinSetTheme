@@ -15,24 +15,37 @@ using namespace std;
 
 _TCHAR *ProcName;
 int OK = 0, Error = 0;
+BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam);
+BOOL CALLBACK EnumChildWindowsProc(HWND hwnd, LPARAM lParam);
 
 VOID DoAThing(HWND hwnd)
 {
 	BOOL result = SetWindowTheme(hwnd, L" ", L" ");
 
-	if (result == 0) 
+	if (result == 0)
 	{
 		// cout << "0x" << hwnd << " - OK" << endl;
 		OK++;
 	}
 	if (result != 0)
 	{
-		cout << "0x" << hwnd << " - ERR" << endl;
+		cout << "0x" << hwnd << " - ERR " << GetLastError() << endl;
 		Error++;
 	}
 }
 
-BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam);
+VOID KekThisWindow(HWND hwnd)
+{
+	DoAThing(hwnd);
+	EnumChildWindows(hwnd, &EnumChildWindowsProc, NULL);
+}
+
+BOOL CALLBACK EnumChildWindowsProc(HWND hwnd, LPARAM lParam)
+{
+	DoAThing(hwnd);
+	return TRUE;
+}
+
 BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam)
 {
 	if (ProcName != NULL)
@@ -61,7 +74,7 @@ BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam)
 
 			TCHAR* slash = _tcsrchr(Buffer, '\\');
 			if (_tcscmp(slash, EditedProcName) == 0)
-				DoAThing(hwnd);
+				KekThisWindow(hwnd);
 		}
 		else 
 		{
@@ -76,7 +89,7 @@ BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam)
 	}
 	else 
 	{
-		DoAThing(hwnd);
+		KekThisWindow(hwnd);
 		return TRUE;
 	}
 }
