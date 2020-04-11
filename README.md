@@ -1,10 +1,2 @@
-# SetTheme [![Build status](https://ci.appveyor.com/api/projects/status/6faaky9mup279p03?svg=true)](https://ci.appveyor.com/project/feel-the-dz3n/setclassictheme)
-This program uses ``SetWindowTheme`` function. 
-
-![img](https://raw.githubusercontent.com/feel-the-dz3n/SetClassicTheme/master/sctprev.gif)
-
-## Usage
-| Argument          | Result                                    |
-|       :--:        |                   :--:                    |
-| Without arguments | Removes theming for all available windows |
-| Process name      | Removes theming for all process windows   |
+# SetTheme [![Build status](https://ci.appveyor.com/api/projects/status/4en0lf269f2h6m0a?svg=true)](https://ci.appveyor.com/project/feel-the-dz3n/settheme)
+This program searches for windows and uses ``SetWindowTheme`` function.
