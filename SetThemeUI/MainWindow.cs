@@ -50,10 +50,11 @@ namespace SetThemeUI
 
                 try
                 {
-                    foreach (var hwnd in HwndSearch.Search(hwndSearchControl1.SearchType, hwndSearchControl1.SearchValues.ToArray()))
+                    HwndSearch.ForEach(hwndSearchControl1.SearchType, hwndSearchControl1.SearchValues.ToArray(), (hwnd) =>
                     {
                         try
                         {
+                            log.WriteLine("Setting theming for " + hwnd);
                             WindowTheming.Set(hwnd, themePickControl1.SelectedTheme);
                         }
                         catch (Exception ex)
@@ -61,7 +62,7 @@ namespace SetThemeUI
                             log.WriteLine("Failed to process HWND: " + hwnd);
                             log.WriteLine(ex.ToString());
                         }
-                    }
+                    });
                 }
                 catch (Exception ex) 
                 {
