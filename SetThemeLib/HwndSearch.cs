@@ -8,30 +8,37 @@ namespace SetThemeLib
     public class HwndSearch
     {
         /// <summary>
-        /// Searches HWNDs and returns a list of HWNDs
+        /// Searches HWNDs and invokes Action
         /// </summary>
-        public static List<IntPtr> Search(HwndSearchTypes type, object[] valuesRaw)
+        public static void ForEach(HwndSearchTypes type, object[] valuesRaw, Action<IntPtr> action)
         {
-            var list = new List<IntPtr>();
-
-            if (type == HwndSearchTypes.All)
+            if (type == HwndSearchTypes.Specific)
             {
-                User32.EnumWindows((mainHwnd, b) =>
+                foreach (var value in valuesRaw.Cast<IntPtr>())
+                    action(value);
+
+                return;
+            }
+
+            User32.EnumWindows((mainHwnd, b) =>
+            {
+                if (type == HwndSearchTypes.All)
+                    action(mainHwnd);
+                else if (type == HwndSearchTypes.ForProcess)
                 {
-                    list.Add(mainHwnd);
+                    // check for process name
+                    throw new NotImplementedException();
+                }
+                else throw new NotImplementedException("Unknown search type: " + type);
 
-                    User32.EnumChildWindows(mainHwnd, (childHwnd, b2) =>
-                    {
-                        list.Add(childHwnd);
-                        return true;
-                    }, IntPtr.Zero);
-
+                User32.EnumChildWindows(mainHwnd, (childHwnd, b2) =>
+                {
+                    action(childHwnd);
                     return true;
                 }, IntPtr.Zero);
-            }
-            else throw new NotImplementedException();
 
-            return list;
+                return true;
+            }, IntPtr.Zero);
         }
     }
 }
