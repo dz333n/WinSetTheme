@@ -12,8 +12,8 @@ namespace SetThemeLib
             new Theme(" ", "Classic theming"),
             new Theme("Explorer", "Gives list-view control the appearance of a Windows Explorer list"),
             new Theme("DarkMode_Explorer", "Seems to be dark variation of Explorer theme"),
-            new Theme("Explorer", "Explorer + apply Win32 dark theme", WindowTheming.ApplyDark32),
-            new Theme("DarkMode_Explorer", "DarkMode_Explorer + apply Win32 dark theme", WindowTheming.ApplyDark32),
+            new Theme("Explorer", "Explorer + apply Win32 dark theme", WindowTheming.AllowDarkMode),
+            new Theme("DarkMode_Explorer", "DarkMode_Explorer + apply Win32 dark theme", WindowTheming.AllowDarkMode),
         };
     }
 }
