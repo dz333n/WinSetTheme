@@ -2,6 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net40</TargetFramework>
+    <OutputType>WinExe</OutputType>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\SetThemeLib\SetThemeLib.csproj" />
