@@ -30,9 +30,9 @@
         {
             this.rbAllHwnds = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbProcess = new System.Windows.Forms.RadioButton();
-            this.rbSpecificHWNDs = new System.Windows.Forms.RadioButton();
             this.btnEditProps = new System.Windows.Forms.Button();
+            this.rbSpecificHWNDs = new System.Windows.Forms.RadioButton();
+            this.rbProcess = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,8 +44,10 @@
             this.rbAllHwnds.Name = "rbAllHwnds";
             this.rbAllHwnds.Size = new System.Drawing.Size(146, 17);
             this.rbAllHwnds.TabIndex = 0;
+            this.rbAllHwnds.TabStop = true;
             this.rbAllHwnds.Text = "Find all available HWNDs";
             this.rbAllHwnds.UseVisualStyleBackColor = true;
+            this.rbAllHwnds.CheckedChanged += new System.EventHandler(this.CheckChanged);
             // 
             // groupBox1
             // 
@@ -63,26 +65,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "HWND Search";
             // 
-            // rbProcess
-            // 
-            this.rbProcess.AutoSize = true;
-            this.rbProcess.Location = new System.Drawing.Point(6, 42);
-            this.rbProcess.Name = "rbProcess";
-            this.rbProcess.Size = new System.Drawing.Size(188, 17);
-            this.rbProcess.TabIndex = 1;
-            this.rbProcess.Text = "Find HWNDs for specified process";
-            this.rbProcess.UseVisualStyleBackColor = true;
-            // 
-            // rbSpecificHWNDs
-            // 
-            this.rbSpecificHWNDs.AutoSize = true;
-            this.rbSpecificHWNDs.Location = new System.Drawing.Point(6, 65);
-            this.rbSpecificHWNDs.Name = "rbSpecificHWNDs";
-            this.rbSpecificHWNDs.Size = new System.Drawing.Size(106, 17);
-            this.rbSpecificHWNDs.TabIndex = 2;
-            this.rbSpecificHWNDs.Text = "Specific HWNDs";
-            this.rbSpecificHWNDs.UseVisualStyleBackColor = true;
-            // 
             // btnEditProps
             // 
             this.btnEditProps.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -94,6 +76,28 @@
             this.btnEditProps.Text = "Edit properties...";
             this.btnEditProps.UseVisualStyleBackColor = true;
             this.btnEditProps.Click += new System.EventHandler(this.btnEditProps_Click);
+            // 
+            // rbSpecificHWNDs
+            // 
+            this.rbSpecificHWNDs.AutoSize = true;
+            this.rbSpecificHWNDs.Location = new System.Drawing.Point(6, 65);
+            this.rbSpecificHWNDs.Name = "rbSpecificHWNDs";
+            this.rbSpecificHWNDs.Size = new System.Drawing.Size(106, 17);
+            this.rbSpecificHWNDs.TabIndex = 2;
+            this.rbSpecificHWNDs.Text = "Specific HWNDs";
+            this.rbSpecificHWNDs.UseVisualStyleBackColor = true;
+            this.rbSpecificHWNDs.CheckedChanged += new System.EventHandler(this.CheckChanged);
+            // 
+            // rbProcess
+            // 
+            this.rbProcess.AutoSize = true;
+            this.rbProcess.Location = new System.Drawing.Point(6, 42);
+            this.rbProcess.Name = "rbProcess";
+            this.rbProcess.Size = new System.Drawing.Size(188, 17);
+            this.rbProcess.TabIndex = 1;
+            this.rbProcess.Text = "Find HWNDs for specified process";
+            this.rbProcess.UseVisualStyleBackColor = true;
+            this.rbProcess.CheckedChanged += new System.EventHandler(this.CheckChanged);
             // 
             // HwndSearchControl
             // 
