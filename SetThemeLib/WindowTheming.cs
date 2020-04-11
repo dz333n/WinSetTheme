@@ -24,8 +24,7 @@ namespace SetThemeLib
         /// </summary>
         public static void AllowDarkMode(IntPtr hwnd)
         {
-            if (!UxTheme.AllowDarkModeForWindow(hwnd, true))
-                throw new Exception("Unable to apply dark mode to " + hwnd + ", win32 error: " + Marshal.GetLastWin32Error());
+            UxTheme.AllowDarkModeForWindow(hwnd, true);
         }
     }
 }
