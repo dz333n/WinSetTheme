@@ -4,6 +4,9 @@
     <TargetFramework>net40</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SetThemeLib\SetThemeLib.csproj" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Deployment" />
