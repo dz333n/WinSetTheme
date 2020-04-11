@@ -80,6 +80,7 @@
             this.btnPerform.TabIndex = 1;
             this.btnPerform.Text = "Perform SetWindowTheme for each HWND";
             this.btnPerform.UseVisualStyleBackColor = true;
+            this.btnPerform.Click += new System.EventHandler(this.btnPerform_Click);
             // 
             // log
             // 
