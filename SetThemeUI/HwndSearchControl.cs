@@ -40,7 +40,8 @@ namespace SetThemeUI
             using (var editWnd = new EditWindow(
                 "Edit properties...",
                 "You can specify few or more values. Split using ;",
-                SearchValues.Select(x => x.ToString()).Aggregate((i, j) => i + ";" + j)))
+                SearchValues.Count >= 1 ? 
+                SearchValues.Select(x => x.ToString()).Aggregate((i, j) => i + ";" + j) : ""))
             {
                 var dialogResult = editWnd.ShowDialog();
 
@@ -49,10 +50,10 @@ namespace SetThemeUI
                     SearchValues.Clear();
 
                     if (SearchType == HwndSearchTypes.ForProcess)
-                        foreach (var processName in editWnd.Result.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries))
+                        foreach (var processName in editWnd.Result.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()))
                             SearchValues.Add(processName);
                     else if (SearchType == HwndSearchTypes.Specific)
-                        foreach (var hwndText in editWnd.Result.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries))
+                        foreach (var hwndText in editWnd.Result.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()))
                         {
                             try
                             {
