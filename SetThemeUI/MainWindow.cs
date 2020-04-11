@@ -82,5 +82,18 @@ namespace SetThemeUI
                 IsWorking = false;
             }).Start();
         }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (IsWorking)
+            {
+                var msg = MessageBox.Show("The program is working. Force exit?", "SetTheme", MessageBoxButtons.YesNo);
+
+                if (msg == DialogResult.Yes)
+                    Environment.Exit(0);
+                else
+                    e.Cancel = true;
+            }
+        }
     }
 }
