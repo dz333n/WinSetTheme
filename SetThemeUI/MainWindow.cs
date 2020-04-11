@@ -61,8 +61,13 @@ namespace SetThemeUI
                     {
                         try
                         {
-                            log.WriteLine("Setting theming for " + hwnd);
-                            WindowTheming.Set(hwnd, themePickControl1.SelectedTheme);
+                            // log.WriteLine("Setting theming for " + hwnd);
+                            var result = WindowTheming.Set(hwnd, themePickControl1.SelectedTheme);
+
+                            if (result != 0)
+                            {
+                                log.WriteLine($"Failed to process {hwnd:X2}: {result}"); // TODO: error string here
+                            }
                         }
                         catch (Exception ex)
                         {
