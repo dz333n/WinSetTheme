@@ -12,6 +12,8 @@ namespace SetThemeUI
 {
     public partial class ThemePickControl : UserControl
     {
+        public Theme SelectedTheme => throw new NotImplementedException();
+
         public ThemePickControl()
         {
             InitializeComponent();
