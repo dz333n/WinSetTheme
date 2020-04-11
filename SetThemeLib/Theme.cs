@@ -17,5 +17,8 @@ namespace SetThemeLib
             Description = description;
             ExtraAction = extraAction;
         }
+
+        public override string ToString()
+            => $"ThemeAppName: {(Value != null ? Value : "null")}";
     }
 }
