@@ -14,6 +14,8 @@ namespace SetThemeUI
         public MainWindow()
         {
             InitializeComponent();
+
+            log.WriteLine(Environment.OSVersion.ToString());
         }
     }
 }
