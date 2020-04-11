@@ -37,7 +37,10 @@ namespace SetThemeUI
 
         private void btnEditProps_Click(object sender, EventArgs e)
         {
-            using (var editWnd = new EditWindow("Edit properties...", "You can specify few or more values. Split using ;"))
+            using (var editWnd = new EditWindow(
+                "Edit properties...",
+                "You can specify few or more values. Split using ;",
+                SearchValues.Select(x => x.ToString()).Aggregate((i, j) => i + ";" + j)))
             {
                 var dialogResult = editWnd.ShowDialog();
 
@@ -49,8 +52,18 @@ namespace SetThemeUI
                         foreach (var processName in editWnd.Result.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries))
                             SearchValues.Add(processName);
                     else if (SearchType == HwndSearchTypes.Specific)
-                        foreach (var hwnd in editWnd.Result.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries))
-                            SearchValues.Add(hwnd);
+                        foreach (var hwndText in editWnd.Result.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries))
+                        {
+                            try
+                            {
+                                var hwndLong = long.Parse(hwndText, System.Globalization.NumberStyles.Any);
+                                SearchValues.Add(new IntPtr(hwndLong));
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.ToString(), "Unable to convert your HWNDs", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
                 }
             }
         }
