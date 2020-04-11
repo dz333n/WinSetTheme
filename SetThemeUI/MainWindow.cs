@@ -17,5 +17,10 @@ namespace SetThemeUI
 
             log.WriteLine(Environment.OSVersion.ToString());
         }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
