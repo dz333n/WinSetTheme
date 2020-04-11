@@ -28,13 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.logControl = new SetThemeUI.LogControl();
             this.SuspendLayout();
+            // 
+            // logControl
+            // 
+            this.logControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.logControl.Location = new System.Drawing.Point(12, 320);
+            this.logControl.Name = "logControl";
+            this.logControl.Size = new System.Drawing.Size(626, 109);
+            this.logControl.TabIndex = 0;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(650, 441);
+            this.Controls.Add(this.logControl);
             this.Name = "MainWindow";
             this.Text = "SetTheme";
             this.ResumeLayout(false);
@@ -42,6 +53,8 @@
         }
 
         #endregion
+
+        private LogControl logControl;
     }
 }
 
