@@ -16,7 +16,16 @@ namespace SetThemeUI
             InitializeComponent();
         }
 
-        public void Write(string text) => tbLog.AppendText(text);
+        public void Write(string text)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(() => Write(text)));
+                return;
+            }
+
+            tbLog.AppendText(text);
+        }
 
         public void WriteLine(string text) => Write(text + Environment.NewLine);
     }
