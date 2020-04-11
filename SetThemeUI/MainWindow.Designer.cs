@@ -1,6 +1,6 @@
 ﻿namespace SetThemeUI
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
