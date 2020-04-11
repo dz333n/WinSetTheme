@@ -10,10 +10,12 @@ namespace SetThemeLib
         /// <summary>
         /// Sets theming for specified HWND
         /// </summary>
-        public static void Set(IntPtr hwnd, Theme theme)
+        public static int Set(IntPtr hwnd, Theme theme)
         {
-            UxTheme.SetWindowTheme(hwnd, theme.Value, null);
+            var result = UxTheme.SetWindowTheme(hwnd, theme.Value, null);
             theme.ExtraAction?.Invoke(hwnd);
+
+            return result;
         }
 
         /// <summary>
