@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetThemeLib", "SetThemeLib\SetThemeLib.csproj", "{F4717E4A-B9F9-48AA-960F-DB0BC69D598B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetThemeUI", "SetThemeUI\SetThemeUI.csproj", "{7CFC4C2F-A48C-4AA4-82ED-11145E51D65C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4717E4A-B9F9-48AA-960F-DB0BC69D598B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4717E4A-B9F9-48AA-960F-DB0BC69D598B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4717E4A-B9F9-48AA-960F-DB0BC69D598B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4717E4A-B9F9-48AA-960F-DB0BC69D598B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CFC4C2F-A48C-4AA4-82ED-11145E51D65C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CFC4C2F-A48C-4AA4-82ED-11145E51D65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CFC4C2F-A48C-4AA4-82ED-11145E51D65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CFC4C2F-A48C-4AA4-82ED-11145E51D65C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DD4279DD-CD93-45A3-B2CC-0B602569F2A0}
+	EndGlobalSection
+EndGlobal
