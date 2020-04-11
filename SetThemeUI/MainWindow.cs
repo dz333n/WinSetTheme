@@ -74,6 +74,10 @@ namespace SetThemeUI
                             log.WriteLine("Failed to process HWND: " + hwnd);
                             log.WriteLine(ex.ToString());
                         }
+                    }, (hwnd, ex) =>
+                    {
+                        log.WriteLine("Failed search for HWND: " + hwnd);
+                        log.WriteLine(ex.ToString());
                     });
                 }
                 catch (Exception ex) 
