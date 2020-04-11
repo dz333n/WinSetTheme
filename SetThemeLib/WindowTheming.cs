@@ -21,7 +21,7 @@ namespace SetThemeLib
         /// </summary>
         public static void ApplyDark32(IntPtr hwnd)
         {
-
+            throw new NotImplementedException();
         }
     }
 }
