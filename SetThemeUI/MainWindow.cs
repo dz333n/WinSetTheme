@@ -20,18 +20,25 @@ namespace SetThemeUI
             log.WriteLine(Environment.OSVersion.ToString());
         }
 
-        private void SetWorking(bool value)
+        private bool _isWorking;
+        public bool IsWorking
         {
-            if (InvokeRequired)
+            get => _isWorking;
+            set
             {
-                Invoke(new Action(() => SetWorking(value)));
-                return;
+                if (InvokeRequired)
+                {
+                    Invoke(new Action(() => IsWorking = value));
+                    return;
+                }
+
+                _isWorking = value;
+
+                Cursor = value ? Cursors.AppStarting : null;
+
+                tableLayoutPanel1.Enabled = !value;
+                btnPerform.Enabled = !value;
             }
-
-            Cursor = value ? Cursors.AppStarting : null;
-
-            tableLayoutPanel1.Enabled = !value;
-            btnPerform.Enabled = !value;
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -45,7 +52,7 @@ namespace SetThemeUI
             {
                 var time = DateTime.Now;
 
-                SetWorking(true);
+                IsWorking = true;
                 log.WriteLine("Beginning...");
 
                 try
@@ -72,7 +79,7 @@ namespace SetThemeUI
                 }
 
                 log.WriteLine("Completed in " + (DateTime.Now - time));
-                SetWorking(false);
+                IsWorking = false;
             }).Start();
         }
     }
