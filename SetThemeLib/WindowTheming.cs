@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace SetThemeLib
@@ -12,8 +13,8 @@ namespace SetThemeLib
         /// </summary>
         public static int Set(IntPtr hwnd, Theme theme)
         {
-            var result = UxTheme.SetWindowTheme(hwnd, theme.Value, null);
             theme.ExtraAction?.Invoke(hwnd);
+            var result = UxTheme.SetWindowTheme(hwnd, theme.Value, null);
 
             return result;
         }
@@ -21,9 +22,10 @@ namespace SetThemeLib
         /// <summary>
         /// Applies dark theming for win32 application
         /// </summary>
-        public static void ApplyDark32(IntPtr hwnd)
+        public static void AllowDarkMode(IntPtr hwnd)
         {
-            throw new NotImplementedException();
+            if (!UxTheme.AllowDarkModeForWindow(hwnd, true))
+                throw new Exception("Unable to apply dark mode to " + hwnd + ", win32 error: " + Marshal.GetLastWin32Error());
         }
     }
 }

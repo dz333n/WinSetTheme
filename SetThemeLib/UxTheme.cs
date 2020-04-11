@@ -11,7 +11,7 @@ namespace SetThemeLib
         [DllImport("uxtheme.dll", SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
         public static extern int SetWindowTheme(IntPtr hWnd, string pszSubAppName, string pszSubIdList);
 
-        [DllImport("uxtheme.dll", EntryPoint = "#133")]
+        [DllImport("uxtheme.dll", SetLastError = true, EntryPoint = "#133")]
         public static extern bool AllowDarkModeForWindow(IntPtr a_HWND, bool a_Allow);
     }
 }
