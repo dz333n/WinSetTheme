@@ -15,5 +15,13 @@ namespace SetThemeLib
             UxTheme.SetWindowTheme(hwnd, theme.Value, null);
             theme.ExtraAction?.Invoke(hwnd);
         }
+
+        /// <summary>
+        /// Applies dark theming for win32 application
+        /// </summary>
+        public static void ApplyDark32(IntPtr hwnd)
+        {
+
+        }
     }
 }
