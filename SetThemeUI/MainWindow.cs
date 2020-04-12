@@ -17,7 +17,8 @@ namespace SetThemeUI
         {
             InitializeComponent();
 
-            log.WriteLine(Environment.OSVersion.ToString());
+            log.WriteLine("OS: " + Environment.OSVersion.ToString());
+            log.WriteLine("TIP: It's recommended to run this program with admin permissions!");
         }
 
         private bool _isWorking;
