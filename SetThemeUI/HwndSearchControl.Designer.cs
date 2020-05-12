@@ -99,7 +99,7 @@
             this.btnEditProps.Name = "btnEditProps";
             this.btnEditProps.Size = new System.Drawing.Size(264, 23);
             this.btnEditProps.TabIndex = 3;
-            this.btnEditProps.Text = "Edit properties...";
+            this.btnEditProps.Text = "Edit values";
             this.btnEditProps.UseVisualStyleBackColor = true;
             this.btnEditProps.Click += new System.EventHandler(this.btnEditProps_Click);
             // 
