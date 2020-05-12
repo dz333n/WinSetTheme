@@ -50,8 +50,7 @@ namespace SetThemeUI
                     SearchValues.Clear();
 
                     if (SearchType == HwndSearchTypes.ForProcess)
-                        foreach (var processName in editWnd.Result.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()))
-                            SearchValues.Add(processName);
+                        SearchValues.AddRange(editWnd.Result.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()));
                     else if (SearchType == HwndSearchTypes.Specific)
                         foreach (var hwndText in editWnd.Result.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()))
                         {
@@ -72,6 +71,25 @@ namespace SetThemeUI
         private void CheckChanged(object sender, EventArgs e)
         {
             btnEditProps.Enabled = SearchType != HwndSearchTypes.All;
+            BtnSelectProcesses.Enabled = SearchType == HwndSearchTypes.ForProcess;
+            BtnSelectWindows.Enabled = false; // SearchType == HwndSearchTypes.Specific; // TODO
+        }
+
+        private void BtnSelectProcesses_Click(object sender, EventArgs e)
+        {
+            using (var processesWnd = new SelectProcessWindow())
+            {
+                if (processesWnd.ShowDialog() == DialogResult.OK)
+                {
+                    SearchValues.Clear();
+                    SearchValues.AddRange(processesWnd.SelectedProcesses.Select(x => x.Name));
+                }
+            }
+        }
+
+        private void BtnSelectWindows_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
