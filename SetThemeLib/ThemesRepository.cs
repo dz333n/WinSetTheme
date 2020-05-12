@@ -14,6 +14,12 @@ namespace SetThemeLib
             new Theme("DarkMode_Explorer", "Seems to be dark variation of Explorer theme"),
             new Theme("Explorer", "Explorer + apply Win32 dark theme", WindowTheming.AllowDarkMode),
             new Theme("DarkMode_Explorer", "DarkMode_Explorer + apply Win32 dark theme", WindowTheming.AllowDarkMode),
+            new Theme("Start", ""),
+            new Theme("TaskBar", ""),
+            new Theme("TrayNotify", ""),
+            new Theme("TrayNotifyHoriz", ""),
+            new Theme("TrayNotifyVert", ""),
+            new Theme("TaskBand", ""),
         };
     }
 }
